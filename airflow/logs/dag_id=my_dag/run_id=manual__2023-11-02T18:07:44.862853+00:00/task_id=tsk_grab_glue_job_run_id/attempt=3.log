@@ -1,0 +1,28 @@
+[2023-11-02T18:08:39.091+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.tsk_grab_glue_job_run_id manual__2023-11-02T18:07:44.862853+00:00 [queued]>
+[2023-11-02T18:08:39.097+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.tsk_grab_glue_job_run_id manual__2023-11-02T18:07:44.862853+00:00 [queued]>
+[2023-11-02T18:08:39.097+0000] {taskinstance.py:1361} INFO - Starting attempt 3 of 3
+[2023-11-02T18:08:39.161+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): tsk_grab_glue_job_run_id> on 2023-11-02 18:07:44.862853+00:00
+[2023-11-02T18:08:39.164+0000] {standard_task_runner.py:57} INFO - Started process 2147 to run task
+[2023-11-02T18:08:39.167+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'my_dag', 'tsk_grab_glue_job_run_id', 'manual__2023-11-02T18:07:44.862853+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn.py', '--cfg-path', '/tmp/tmpt97zel8z']
+[2023-11-02T18:08:39.169+0000] {standard_task_runner.py:85} INFO - Job 35: Subtask tsk_grab_glue_job_run_id
+[2023-11-02T18:08:39.205+0000] {task_command.py:416} INFO - Running <TaskInstance: my_dag.tsk_grab_glue_job_run_id manual__2023-11-02T18:07:44.862853+00:00 [running]> on host ip-172-31-12-44.eu-west-2.compute.internal
+[2023-11-02T18:08:39.254+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='myemail@domain.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='tsk_grab_glue_job_run_id' AIRFLOW_CTX_EXECUTION_DATE='2023-11-02T18:07:44.862853+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-02T18:07:44.862853+00:00'
+[2023-11-02T18:08:47.267+0000] {base.py:73} INFO - Using connection ID 'aws_s3_conn' for task execution.
+[2023-11-02T18:08:47.268+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-11-02T18:08:47.470+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/customer_churn_venv/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/ubuntu/customer_churn_venv/lib/python3.10/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/ubuntu/airflow/dags/customer_churn.py", line 27, in get_run_id
+    response = glue_client.get_job_runs(JobName="s3_upload_to_redshift_gluejob")
+  File "/home/ubuntu/customer_churn_venv/lib/python3.10/site-packages/botocore/client.py", line 535, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ubuntu/customer_churn_venv/lib/python3.10/site-packages/botocore/client.py", line 980, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.EntityNotFoundException: An error occurred (EntityNotFoundException) when calling the GetJobRuns operation: Job with name: s3_upload_to_redshift_gluejob not found.
+[2023-11-02T18:08:47.475+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=my_dag, task_id=tsk_grab_glue_job_run_id, execution_date=20231102T180744, start_date=20231102T180839, end_date=20231102T180847
+[2023-11-02T18:08:47.486+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 35 for task tsk_grab_glue_job_run_id (An error occurred (EntityNotFoundException) when calling the GetJobRuns operation: Job with name: s3_upload_to_redshift_gluejob not found.; 2147)
+[2023-11-02T18:08:47.509+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-02T18:08:47.524+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

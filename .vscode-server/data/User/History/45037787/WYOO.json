@@ -1,0 +1,19 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "editor.tabSize": 2,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.wordWrap": "on",
+    "cSpell.language": "en-GB",
+
+    "terminal.integrated.env.windows": {
+         "PATH": "${env:PATH}"
+    },
+    "remote.SSH.remotePlatform": {
+        "data-pipeline": "linux",
+        "new_airflow": "linux",
+        "data_pipeline": "linux",
+        "customer_churn": "linux"
+    }
+}

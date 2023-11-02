@@ -1,0 +1,9 @@
+2023-11-02 17:51:30.719 [info] [Info  - 5:51:30 PM] (1184) Pylance language server 2023.10.50 (pyright cfe56bfb) starting
+2023-11-02 17:51:30.724 [info] [Info  - 5:51:30 PM] (1184) Server root directory: /home/ubuntu/.vscode-server/extensions/ms-python.vscode-pylance-2023.10.50/dist
+2023-11-02 17:51:30.724 [info] [Info  - 5:51:30 PM] (1184) Starting service instance "ubuntu"
+2023-11-02 17:51:30.791 [info] [Info  - 5:51:30 PM] (1184) Setting pythonPath for service "ubuntu": "/home/ubuntu/customer_churn/bin/python"
+2023-11-02 17:51:30.792 [info] [Info  - 5:51:30 PM] (1184) Setting environmentName for service "ubuntu": "3.10.12 (customer_churn venv)"
+2023-11-02 17:51:30.844 [info] [Info  - 5:51:30 PM] (1184) Assuming Python version 3.10
+2023-11-02 17:51:30.915 [info] [Info  - 5:51:30 PM] (1184) Auto-excluding /home/ubuntu/customer_churn
+2023-11-02 17:51:30.916 [info] [Info  - 5:51:30 PM] (1184) Auto-excluding /home/ubuntu/customer_churn_venv
+2023-11-02 17:51:30.920 [info] [Info  - 5:51:30 PM] (1184) Found 2 source files

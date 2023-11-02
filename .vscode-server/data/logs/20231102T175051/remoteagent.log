@@ -1,0 +1,58 @@
+2023-11-02 17:50:51.645 [info] 
+
+
+
+
+2023-11-02 17:50:51.675 [info] Extension host agent started.
+2023-11-02 17:50:51.811 [error] [127.0.0.1][9a40bef7][ManagementConnection] Unknown reconnection token (never seen).
+2023-11-02 17:50:51.951 [error] [127.0.0.1][9c254105][ExtensionHostConnection] Unknown reconnection token (never seen).
+2023-11-02 17:51:04.567 [info] Got delay-shutdown request while in shutdown timeout, delaying
+2023-11-02 17:51:04.567 [info] Cancelling previous shutdown timeout
+2023-11-02 17:51:05.742 [info] [127.0.0.1][be5e46e9][ManagementConnection] New connection established.
+2023-11-02 17:51:05.754 [info] [127.0.0.1][fa6fdf36][ExtensionHostConnection] New connection established.
+2023-11-02 17:51:05.759 [info] [127.0.0.1][fa6fdf36][ExtensionHostConnection] <1100> Launched Extension Host Process.
+2023-11-02 17:51:15.355 [info] Getting Manifest... ms-python.python
+2023-11-02 17:51:15.399 [info] Installing extension: ms-python.python
+2023-11-02 17:51:15.854 [info] Getting Manifest... ms-python.vscode-pylance
+2023-11-02 17:51:15.911 [info] Installing extension: ms-python.vscode-pylance ms-python.python
+2023-11-02 17:51:16.345 [warning] Extension signature verification failed with error 'ENOENT': ms-python.python
+2023-11-02 17:51:20.128 [info] Extracted extension to file:///home/ubuntu/.vscode-server/extensions/ms-python.python-2023.20.0: ms-python.python
+2023-11-02 17:51:20.146 [info] Renamed to /home/ubuntu/.vscode-server/extensions/ms-python.python-2023.20.0
+2023-11-02 17:51:20.157 [info] Extracting extension completed. ms-python.python
+2023-11-02 17:51:20.620 [warning] Extension signature verification failed with error 'ENOENT': ms-python.vscode-pylance
+2023-11-02 17:51:27.336 [info] Extracted extension to file:///home/ubuntu/.vscode-server/extensions/ms-python.vscode-pylance-2023.10.50: ms-python.vscode-pylance
+2023-11-02 17:51:27.354 [info] Renamed to /home/ubuntu/.vscode-server/extensions/ms-python.vscode-pylance-2023.10.50
+2023-11-02 17:51:27.358 [info] Extracting extension completed. ms-python.vscode-pylance
+2023-11-02 17:51:27.367 [info] Extension installed successfully: ms-python.python
+2023-11-02 17:51:27.368 [info] Extension installed successfully: ms-python.vscode-pylance
+2023-11-02 17:56:04.568 [info] New EH opened, aborting shutdown
+2023-11-02 19:23:43.081 [info] [127.0.0.1][be5e46e9][ManagementConnection] The client has reconnected.
+2023-11-02 19:23:43.084 [info] [127.0.0.1][fa6fdf36][ExtensionHostConnection] The client has reconnected.
+2023-11-02 19:23:44.105 [error] CodeExpectedError: Could not find pty on pty host
+    at A.U (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:32246)
+    at A.updateIcon (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:27496)
+    at V.<computed> (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:22715)
+    at Object.call (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:34:5059)
+    at h.s (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:5150)
+    at h.q (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:4661)
+    at g.value (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:4066)
+    at n.z (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:27:1902)
+    at n.fire (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:27:2119)
+    at process.he (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:25:9949)
+    at process.emit (node:events:513:28)
+    at emit (node:internal/child_process:937:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-11-02 19:23:44.107 [error] CodeExpectedError: Could not find pty on pty host
+    at A.U (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:32246)
+    at A.updateTitle (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:27446)
+    at V.<computed> (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:44:22715)
+    at Object.call (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:34:5059)
+    at h.s (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:5150)
+    at h.q (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:4661)
+    at g.value (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:32:4066)
+    at n.z (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:27:1902)
+    at n.fire (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:27:2119)
+    at process.he (/home/ubuntu/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/out/vs/platform/terminal/node/ptyHostMain.js:25:9949)
+    at process.emit (node:events:513:28)
+    at emit (node:internal/child_process:937:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)

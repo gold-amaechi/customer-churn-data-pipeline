@@ -1,0 +1,15 @@
+2023-11-02 17:51:28.523 [info] Experiment 'pythonPromptNewFormatterExt' is active
+2023-11-02 17:51:28.523 [info] Experiment 'pythonPromptNewToolsExt' is active
+2023-11-02 17:51:28.523 [info] Experiment 'pythonTestAdapter' is active
+2023-11-02 17:51:28.568 [info] Default formatter is set to null for workspace /home/ubuntu
+2023-11-02 17:51:29.045 [info] Test server listening.
+2023-11-02 17:51:29.099 [info] > ./customer_churn/bin/python -I ./.vscode-server/extensions/ms-python.python-2023.20.0/pythonFiles/get_output_via_markers.py ./.vscode-server/extensions/ms-python.python-2023.20.0/pythonFiles/interpreterInfo.py
+2023-11-02 17:51:29.117 [info] > ./customer_churn_venv/bin/python -I ./.vscode-server/extensions/ms-python.python-2023.20.0/pythonFiles/get_output_via_markers.py ./.vscode-server/extensions/ms-python.python-2023.20.0/pythonFiles/interpreterInfo.py
+2023-11-02 17:51:29.181 [warning] Retry failed, storage update failed for key PYTHON_GLOBAL_STORAGE_KEYS
+2023-11-02 17:51:29.181 [warning] Retry failed, storage update failed for key PYTHON_WORKSPACE_STORAGE_KEYS
+2023-11-02 17:51:29.181 [warning] Retry failed, storage update failed for key PYTHON_WORKSPACE_STORAGE_KEYS
+2023-11-02 17:51:29.182 [warning] Retry failed, storage update failed for key PYTHON_WORKSPACE_STORAGE_KEYS
+2023-11-02 17:51:29.245 [info] Python interpreter path: ./customer_churn/bin/python
+2023-11-02 17:51:30.753 [info] Starting Pylance language server.
+2023-11-02 18:11:15.597 [info] Discover tests for workspace name: ubuntu - uri: /home/ubuntu/airflow/dags/customer_churn.py
+2023-11-02 18:11:17.956 [info] Discover tests for workspace name: ubuntu - uri: /home/ubuntu/airflow/dags/customer_churn.py

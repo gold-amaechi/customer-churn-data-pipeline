@@ -1,0 +1,325 @@
+[2023-11-02T18:12:00.798+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.tsk_is_glue_job_finish_running manual__2023-11-02T18:11:46.407749+00:00 [queued]>
+[2023-11-02T18:12:00.804+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.tsk_is_glue_job_finish_running manual__2023-11-02T18:11:46.407749+00:00 [queued]>
+[2023-11-02T18:12:00.804+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-11-02T18:12:00.866+0000] {taskinstance.py:1382} INFO - Executing <Task(GlueJobSensor): tsk_is_glue_job_finish_running> on 2023-11-02 18:11:46.407749+00:00
+[2023-11-02T18:12:00.869+0000] {standard_task_runner.py:57} INFO - Started process 2164 to run task
+[2023-11-02T18:12:00.872+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'my_dag', 'tsk_is_glue_job_finish_running', 'manual__2023-11-02T18:11:46.407749+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn.py', '--cfg-path', '/tmp/tmposy4ataj']
+[2023-11-02T18:12:00.873+0000] {standard_task_runner.py:85} INFO - Job 38: Subtask tsk_is_glue_job_finish_running
+[2023-11-02T18:12:00.908+0000] {task_command.py:416} INFO - Running <TaskInstance: my_dag.tsk_is_glue_job_finish_running manual__2023-11-02T18:11:46.407749+00:00 [running]> on host ip-172-31-12-44.eu-west-2.compute.internal
+[2023-11-02T18:12:00.966+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='myemail@domain.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='tsk_is_glue_job_finish_running' AIRFLOW_CTX_EXECUTION_DATE='2023-11-02T18:11:46.407749+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-02T18:11:46.407749+00:00'
+[2023-11-02T18:12:00.967+0000] {glue.py:71} INFO - Poking for job run status :for Glue Job s3_upload_redshift_gluejob and ID jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+[2023-11-02T18:12:00.971+0000] {base.py:73} INFO - Using connection ID 'aws_s3_conn' for task execution.
+[2023-11-02T18:12:00.971+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-11-02T18:12:01.359+0000] {credentials.py:1255} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[2023-11-02T18:12:01.574+0000] {glue.py:247} WARNING - No new Glue driver logs so far.
+If this persists, check the CloudWatch dashboard at: https://eu-west-2.console.aws.amazon.com/cloudwatch/home
+[2023-11-02T18:12:01.575+0000] {glue.py:260} INFO - No new log from the Glue Job in /aws-glue/jobs/output
+[2023-11-02T18:12:01.696+0000] {glue.py:247} WARNING - No new Glue driver logs so far.
+If this persists, check the CloudWatch dashboard at: https://eu-west-2.console.aws.amazon.com/cloudwatch/home
+[2023-11-02T18:12:01.696+0000] {glue.py:260} INFO - No new log from the Glue Job in /aws-glue/jobs/error
+[2023-11-02T18:13:01.755+0000] {glue.py:71} INFO - Poking for job run status :for Glue Job s3_upload_redshift_gluejob and ID jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+[2023-11-02T18:13:02.064+0000] {glue.py:247} WARNING - No new Glue driver logs so far.
+If this persists, check the CloudWatch dashboard at: https://eu-west-2.console.aws.amazon.com/cloudwatch/home
+[2023-11-02T18:13:02.065+0000] {glue.py:260} INFO - No new log from the Glue Job in /aws-glue/jobs/output
+[2023-11-02T18:13:02.233+0000] {glue.py:258} INFO - Glue Job Run /aws-glue/jobs/error Logs:
+	Preparing ...
+	Thu Nov  2 18:12:10 UTC 2023
+	/usr/bin/java -cp /tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar com.amazonaws.services.glue.PrepareLaunch --conf spark.dynamicAllocation.enabled=true --conf spark.shuffle.service.enabled=true --conf spark.dynamicAllocation.minExecutors=1 --conf spark.dynamicAllocation.maxExecutors=9 --conf spark.executor.memory=10g --conf spark.executor.cores=8 --conf spark.driver.memory=10g --conf spark.default.parallelism=80 --conf spark.sql.shuffle.partitions=80 --conf spark.network.timeout=600  --connection-names connect_redshift_ETL  --enable-glue-datacatalog true --job-bookmark-option job-bookmark-disable --TempDir s3://aws-glue-assets-596056226988-eu-west-2/temporary/  --JOB_ID j_97a25916c827fd1768592eae60d275cf1b3b5712befb31deb9f23fbba5cf1772 --enable-metrics true --enable-spark-ui true --spark-event-logs-path s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/ --enable-job-insights false  --JOB_RUN_ID jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 --enable-continuous-cloudwatch-log true --scriptLocation s3://aws-glue-assets-596056226988-eu-west-2/scripts/s3_upload_redshift_gluejob.py  --job-language python --JOB_NAME s3_upload_redshift_gluejob
+	1698948735973
+	SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+	SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+	SLF4J: Found binding in [jar:file:/opt/amazon/lib/Log4j-slf4j-2.x.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+	SLF4J: Found binding in [jar:file:/opt/amazon/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]	
+	SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.	
+	SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+	INFO	2023-11-02T18:12:21,142	10511	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: create aws log client with conf: proxy host 169.254.76.0, proxy port 8888
+	INFO	2023-11-02T18:12:21,789	11158	com.amazonaws.http.AmazonHttpClient	[main]	Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	INFO	2023-11-02T18:12:22,402	11771	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: getGlueClient. proxy host: 169.254.76.0 , port: 8888
+	INFO	2023-11-02T18:12:22,791	12160	com.amazonaws.http.AmazonHttpClient	[main]	Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	GlueTelemetry: Current region eu-west-2
+	GlueTelemetry: Glue Endpoint https://glue.eu-west-2.amazonaws.com
+	GlueTelemetry: Prod env...false
+	GlueTelemetry: is disabled
+	INFO	2023-11-02T18:12:23,025	12394	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: getGlueClient. proxy host: 169.254.76.0 , port: 8888
+	INFO	2023-11-02T18:12:23,036	12405	com.amazonaws.http.AmazonHttpClient	[main]	Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	INFO	2023-11-02T18:12:23,169	12538	com.amazonaws.services.glue.PrepareLaunch	[main]	Glue Connectors: attached connection types: ListBuffer()
+	successfully created /opt/aws_glue_connectors/selected/redshift
+successfully created /opt/aws_glue_connectors/selected/datalake
+	successfully created /opt/aws_glue_connectors/selected/native
+successfully created /opt/aws_glue_connectors/selected/marketplace
+	INFO	2023-11-02T18:12:23,173	12542	com.amazonaws.services.glue.PrepareLaunch	[main]	moving redshift connector jars
+	INFO	2023-11-02T18:12:23,173	12542	com.amazonaws.services.glue.PrepareLaunch	[main]	Redshift connector: jar dir: new
+	INFO	2023-11-02T18:12:23,177	12546	com.amazonaws.services.glue.PrepareLaunch	[main]	Move redshift connector jars /opt/aws_glue_connectors/aws_glue_redshift_connectors/new/redshift-jdbc42-2.1.0.16.jar to /opt/aws_glue_connectors/selected/redshift/redshift-jdbc42-2.1.0.16.jar
+	INFO	2023-11-02T18:12:23,211	12580	com.amazonaws.services.glue.PrepareLaunch	[main]	Move redshift connector jars /opt/aws_glue_connectors/aws_glue_redshift_connectors/new/spark-redshift_2.12-6.0.0-spark_3.3.jar to /opt/aws_glue_connectors/selected/redshift/spark-redshift_2.12-6.0.0-spark_3.3.jar
+	INFO	2023-11-02T18:12:23,224	12593	com.amazonaws.services.glue.PrepareLaunch	[main]	Move redshift connector jars /opt/aws_glue_connectors/aws_glue_redshift_connectors/new/spark-avro_2.12-3.3.0-amzn-1.jar to /opt/aws_glue_connectors/selected/redshift/spark-avro_2.12-3.3.0-amzn-1.jar
+	Glue ETL Marketplace - Start ETL connector activation process...
+	Glue ETL Marketplace - downloading jars for following connections: List(connect_redshift_ETL) using command: List(python3, -u, -m, docker.unpack_docker_image, --connections, connect_redshift_ETL, --result_path, jar_paths, --region, eu-west-2, --endpoint, https://glue.eu-west-2.amazonaws.com, --proxy, 169.254.76.0:8888)
+	2023-11-02 18:12:24,563 - __main__ - INFO - Glue ETL Marketplace - Start downloading connector jars for connection: connect_redshift_ETL
+	2023-11-02 18:12:24,897 - __main__ - INFO - Glue ETL Marketplace - using region: eu-west-2, proxy: 169.254.76.0:8888 and glue endpoint: https://glue.eu-west-2.amazonaws.com to get connection: connect_redshift_ETL
+	2023-11-02 18:12:25,039 - __main__ - WARNING - Glue ETL Marketplace - Connection connect_redshift_ETL is not a Marketplace connection, skip jar downloading for it	
+	2023-11-02 18:12:25,040 - __main__ - INFO - Glue ETL Marketplace - successfully wrote jar paths to "jar_paths"
+	Glue ETL Marketplace - Retrieved no ETL connector jars, this may be due to no marketplace/custom connection attached to the job or failure of downloading them, please scroll back to the previous logs to find out the root cause. Container setup continues.
+Glue ETL Marketplace - ETL connector activation process finished, container setup continues...
+	Download bucket: aws-glue-assets-596056226988-eu-west-2 key: scripts/s3_upload_redshift_gluejob.py with usingProxy: false
+	Launching ...
+	Thu Nov  2 18:12:25 UTC 2023
+	/usr/bin/java -cp /tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar:/opt/aws_glue_connectors/selected/redshift/*:/opt/aws_glue_connectors/selected/datalake/*::/opt/aws_glue_connectors/selected/marketplace/*:/tmp/* -Dlog4j.configurationFile=/tmp/log4j2.properties -server -Xmx10g -XX:+UseG1GC -XX:MaxHeapFreeRatio=70 -XX:InitiatingHeapOccupancyPercent=45 -XX:OnOutOfMemoryError=/opt/exception_catch/onOOMError.sh %p jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 s3_upload_redshift_gluejob true false -XX:+UseCompressedOops -Djavax.net.ssl.trustStore=/opt/amazon/certs/ExternalAndAWSTrustStore.jks -Djavax.net.ssl.trustStoreType=JKS -Djavax.net.ssl.trustStorePassword=amazon -DRDS_ROOT_CERT_PATH=/opt/amazon/certs/rds-combined-ca-bundle.pem -DREDSHIFT_ROOT_CERT_PATH=/opt/amazon/certs/redshift-ssl-ca-cert.pem -DRDS_TRUSTSTORE_URL=file:/opt/amazon/certs/RDSTrustStore.jks -Dspark.network.timeout=600 -Dspark.metrics.conf.*.source.jvm.class=org.apache.spark.metrics.source.JvmSource -Dspark.eventLog.enabled=true -Dspark.driver.cores=4 -Dspark.metrics.conf.*.source.system.class=org.apache.spark.metrics.source.SystemMetricsSource -Dspark.cloudwatch.logging.conf.jobRunId=jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 -Dspark.sql.parquet.output.committer.class=com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter -Dspark.glueExceptionAnalysisEventLog.dir=/tmp/glue-exception-analysis-logs/ -Dspark.glue.GLUE_VERSION=4.0 -Dspark.hadoop.aws.glue.proxy.host=169.254.76.0 -Dspark.default.parallelism=36 -Dspark.hadoop.mapred.output.direct.EmrFileSystem=true -Dspark.eventLog.dir=/tmp/spark-event-logs/ -Dspark.authenticate.secret=<HIDDEN> -Dspark.executor.instances=9  -Dspark.hadoop.fs.s3.impl=com.amazon.ws.emr.hadoop.fs.EmrFileSystem -Dspark.hadoop.fs.s3a.connection.maximum=500 -Dspark.glue.enable-job-insights=false -Dspark.hadoop.mapred.output.direct.NativeS3FileSystem=true -Dspark.pyspark.python=/usr/bin/python3 -Dspark.glue.JOB_RUN_ID=jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 -Dspark.metrics.conf.*.sink.GlueCloudwatch.jobRunId=jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 -Dspark.hadoop.hive.metastore.client.factory.class=com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory -Dspark.glue.endpoint=https://glue-jes.eu-west-2.amazonaws.com -Dspark.cloudwatch.logging.ui.showConsoleProgress=true -Dspark.hadoop.mapreduce.fileoutputcommitter.algorithm.version=2 -Dspark.hadoop.aws.glue.endpoint=https://glue.eu-west-2.amazonaws.com -Dspark.hadoop.glue.michiganCredentialsProviderProxy=com.amazonaws.services.glue.remote.LakeformationCredentialsProvider -Dspark.metrics.conf.driver.source.aggregate.class=org.apache.spark.metrics.source.AggregateMetricsSource -Dspark.glue.enable-continuous-cloudwatch-log=true -Dspark.sql.catalogImplementation=hive -Dspark.app.name=nativespark-s3_upload_redshift_gluejob-jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 -Dspark.ui.enabled=false -Dspark.hadoop.aws.glue.proxy.port=8888 -Dspark.driver.extraClassPath=/tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar -Dspark.glue.USE_PROXY=true -Dspark.glue.connection-names=connect_redshift_ETL -Dspark.metrics.conf.*.sink.GlueCloudwatch.jobName=s3_upload_redshift_gluejob -Dspark.authenticate=true -Dspark.dynamicAllocation.enabled=false -Dspark.shuffle.service.enabled=false -Dspark.hadoop.mapred.output.committer.class=org.apache.hadoop.mapred.DirectOutputCommitter -Dspark.executor.extraClassPath=/tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar -Dspark.executor.cores=4 -Dspark.hadoop.lakeformation.credentials.url=http://169.254.76.0:9998/lakeformationcredentials -Dspark.hadoop.fs.s3.maxConnections=500 -Dspark.sql.parquet.fs.optimized.committer.optimization-enabled=true -Dspark.rpc.askTimeout=600 -Dspark.metrics.conf.*.source.s3.class=org.apache.spark.metrics.source.S3FileSystemSource -Dspark.metrics.conf.*.sink.GlueCloudwatch.namespace=Glue -Dspark.sql.shuffle.partitions=36 -Dspark.pyFiles= -Dspark.executor.memory=10g -Dspark.metrics.conf.*.sink.GlueCloudwatch.class=org.apache.spark.metrics.sink.GlueCloudwatchSink -Dspark.driver.memory=10g -Dspark.hadoop.fs.s3.buffer.dir=/tmp/hadoop-spark/s3 -Dspark.glue.GLUE_COMMAND_CRITERIA=glueetl -Dspark.master=jes -Dspark.hadoop.mapreduce.fileoutputcommitter.marksuccessfuljobs=false -Dspark.unsafe.sorter.spill.read.ahead.enabled=false -Dspark.driver.host=172.31.41.101 -Dspark.hadoop.parquet.enable.summary-metadata=false -Dspark.glueAppInsightsLog.dir=/tmp/glue-app-insights-logs/ -Dspark.glue.JOB_NAME=s3_upload_redshift_gluejob -Dspark.files.overwrite=true -Dspark.glue.GLUE_TASK_GROUP_ID=b95dd24e-ebb0-420d-9059-7dde280075ac -Dspark.dynamicAllocation.maxExecutors=9 com.amazonaws.services.glue.ProcessLauncher --launch-class org.apache.spark.deploy.PythonRunner /opt/amazon/bin/runscript.py  /tmp/s3_upload_redshift_gluejob.py true --job-bookmark-option job-bookmark-disable --JOB_ID j_97a25916c827fd1768592eae60d275cf1b3b5712befb31deb9f23fbba5cf1772 true --spark-event-logs-path s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/ --JOB_RUN_ID jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 --JOB_NAME s3_upload_redshift_gluejob --TempDir s3://aws-glue-assets-596056226988-eu-west-2/temporary/
+	SLF4J: Class path contains multiple SLF4J bindings.
+	SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/Log4j-slf4j-2.x.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+	SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+	Continuous Logging: Creating cloudwatch appender with AWSRegion eu-west-2, AWSLogGroup /aws-glue/jobs/logs-v2, AWSLogStream , flushInterval(sec) 5, maxRetries 5
+	Continuous Logging: Creating cloudwatch appender with AWSRegion eu-west-2, AWSLogGroup /aws-glue/jobs/logs-v2, AWSLogStream progress-bar, flushInterval(sec) 5, maxRetries 5
+	2023-11-02 18:12:29,334 INFO [main] util.PlatformInfo (PlatformInfo.java:getJobFlowId(56)): Unable to read clusterId from http://localhost:8321/configuration, trying extra instance data file: /var/lib/instance-controller/extraInstanceData.json
+	2023-11-02 18:12:29,367 INFO [main] util.PlatformInfo (PlatformInfo.java:getJobFlowId(63)): Unable to read clusterId from /var/lib/instance-controller/extraInstanceData.json, trying EMR job-flow data file: /var/lib/info/job-flow.json
+	2023-11-02 18:12:29,368 INFO [main] util.PlatformInfo (PlatformInfo.java:getJobFlowId(71)): Unable to read clusterId from /var/lib/info/job-flow.json, out of places to look
+	2023-11-02 18:12:30,541 INFO [main] glue.SafeLogging (Logging.scala:logInfo(61)): Initializing logging subsystem
+	2023-11-02 18:12:31,792 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Running Spark version 3.3.0-amzn-1
+	2023-11-02 18:12:31,827 INFO [Thread-9] resource.ResourceUtils (Logging.scala:logInfo(61)): ==============================================================
+	2023-11-02 18:12:31,828 INFO [Thread-9] resource.ResourceUtils (Logging.scala:logInfo(61)): No custom resources configured for spark.driver.
+	2023-11-02 18:12:31,828 INFO [Thread-9] resource.ResourceUtils (Logging.scala:logInfo(61)): ==============================================================
+	2023-11-02 18:12:31,829 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Submitted application: nativespark-s3_upload_redshift_gluejob-jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+	2023-11-02 18:12:31,855 INFO [Thread-9] resource.ResourceProfile (Logging.scala:logInfo(61)): Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 4, script: , vendor: , memory -> name: memory, amount: 10240, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+	2023-11-02 18:12:31,870 INFO [Thread-9] resource.ResourceProfile (Logging.scala:logInfo(61)): Limiting resource is cpus at 4 tasks per executor
+	2023-11-02 18:12:31,872 INFO [Thread-9] resource.ResourceProfileManager (Logging.scala:logInfo(61)): Added ResourceProfile id: 0
+	2023-11-02 18:12:31,929 INFO [Thread-9] spark.SecurityManager (Logging.scala:logInfo(61)): Changing view acls to: spark
+	2023-11-02 18:12:31,929 INFO [Thread-9] spark.SecurityManager (Logging.scala:logInfo(61)): Changing modify acls to: spark
+	2023-11-02 18:12:31,930 INFO [Thread-9] spark.SecurityManager (Logging.scala:logInfo(61)): Changing view acls groups to: 
+	2023-11-02 18:12:31,931 INFO [Thread-9] spark.SecurityManager (Logging.scala:logInfo(61)): Changing modify acls groups to: 
+	2023-11-02 18:12:31,931 INFO [Thread-9] spark.SecurityManager (Logging.scala:logInfo(61)): SecurityManager: authentication enabled; ui acls disabled; users  with view permissions: Set(spark); groups with view permissions: Set(); users  with modify permissions: Set(spark); groups with modify permissions: Set()
+	2023-11-02 18:12:32,249 INFO [Thread-9] util.Utils (Logging.scala:logInfo(61)): Successfully started service 'sparkDriver' on port 43705.
+	2023-11-02 18:12:32,299 INFO [Thread-9] spark.SparkEnv (Logging.scala:logInfo(61)): Registering MapOutputTracker
+	2023-11-02 18:12:32,339 INFO [Thread-9] spark.SparkEnv (Logging.scala:logInfo(61)): Registering BlockManagerMaster
+	2023-11-02 18:12:32,369 INFO [Thread-9] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+	2023-11-02 18:12:32,370 INFO [Thread-9] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): BlockManagerMasterEndpoint up
+	2023-11-02 18:12:32,382 INFO [Thread-9] spark.SparkEnv (Logging.scala:logInfo(61)): Registering BlockManagerMasterHeartbeat
+	2023-11-02 18:12:32,408 INFO [Thread-9] storage.DiskBlockManager (Logging.scala:logInfo(61)): Created local directory at /tmp/blockmgr-1125d2e0-5562-42fa-affb-65a938c01af4
+	2023-11-02 18:12:32,434 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): MemoryStore started with capacity 5.8 GiB
+	2023-11-02 18:12:32,454 INFO [Thread-9] spark.SparkEnv (Logging.scala:logInfo(61)): Registering OutputCommitCoordinator
+	2023-11-02 18:12:32,458 INFO [Thread-9] subresultcache.SubResultCacheManager (Logging.scala:logInfo(61)): Sub-result caches are disabled.
+	2023-11-02 18:12:32,530 INFO [Thread-9] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): JESAsSchedulerBackendEndpoint
+	2023-11-02 18:12:33,011 INFO [Thread-9] scheduler.JESSchedulerBackend (Logging.scala:logInfo(61)): JESSchedulerBackend
+	2023-11-02 18:12:33,020 INFO [Thread-9] scheduler.JESSchedulerBackend (JESClusterManager.scala:<init>(210)): JESClusterManager: Initializing JES client with proxy: host: 169.254.76.0, port: 8888
+	2023-11-02 18:12:33,174 INFO [Thread-9] http.AmazonHttpClient (ApacheHttpClientFactory.java:addProxyConfig(90)): Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	2023-11-02 18:12:33,236 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 1; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_1_a_spark-application-1698948752525
+	2023-11-02 18:12:33,255 INFO [Thread-9] util.Utils (Logging.scala:logInfo(61)): Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33315.
+	2023-11-02 18:12:33,256 INFO [Thread-9] netty.NettyBlockTransferService (NettyBlockTransferService.scala:init(82)): Server created on 172.31.41.101:33315
+	2023-11-02 18:12:33,258 INFO [Thread-9] storage.BlockManager (Logging.scala:logInfo(61)): Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+	2023-11-02 18:12:33,269 INFO [Thread-9] storage.BlockManagerMaster (Logging.scala:logInfo(61)): Registering BlockManager BlockManagerId(driver, 172.31.41.101, 33315, None)
+	2023-11-02 18:12:33,273 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.41.101:33315 with 5.8 GiB RAM, BlockManagerId(driver, 172.31.41.101, 33315, None)
+	2023-11-02 18:12:33,277 INFO [Thread-9] storage.BlockManagerMaster (Logging.scala:logInfo(61)): Registered BlockManager BlockManagerId(driver, 172.31.41.101, 33315, None)
+	2023-11-02 18:12:33,278 INFO [Thread-9] storage.BlockManager (Logging.scala:logInfo(61)): Initialized BlockManager: BlockManagerId(driver, 172.31.41.101, 33315, None)
+	2023-11-02 18:12:33,378 INFO [Thread-9] sink.GlueCloudwatchSink (GlueCloudwatchSink.scala:<init>(53)): GlueCloudwatchSink: get cloudwatch client using proxy: host 169.254.76.0, port 8888
+	2023-11-02 18:12:33,382 INFO [Thread-9] sink.GlueCloudwatchSink (GlueCloudwatchSink.scala:logInfo(22)): CloudwatchSink: Obtained credentials from the Instance Profile
+	2023-11-02 18:12:33,407 INFO [Thread-9] http.AmazonHttpClient (ApacheHttpClientFactory.java:addProxyConfig(90)): Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	2023-11-02 18:12:33,420 INFO [Thread-9] sink.GlueCloudwatchSink (GlueCloudwatchSink.scala:logInfo(22)): CloudwatchSink: jobName: s3_upload_redshift_gluejob jobRunId: jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+	2023-11-02 18:12:33,486 INFO [Thread-9] history.SingleEventLogFileWriter (Logging.scala:logInfo(61)): Logging events to file:/tmp/spark-event-logs/spark-application-1698948752525.inprogress
+	2023-11-02 18:12:33,503 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:33,504 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-9a8adbbe823a4749ebf55d4fb7230387808d8896 created for executor 1
+	2023-11-02 18:12:33,505 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 2; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_2_a_spark-application-1698948752525
+	2023-11-02 18:12:33,695 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:33,695 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-13f8431b3ce75214f65a431499399debd2c8b815 created for executor 2
+	2023-11-02 18:12:33,696 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 3; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_3_a_spark-application-1698948752525
+	2023-11-02 18:12:33,784 INFO [Thread-9] util.log (Log.java:initialized(170)): Logging initialized @8428ms to org.sparkproject.jetty.util.log.Slf4jLog
+	2023-11-02 18:12:33,826 INFO [Thread-9] scheduler.JESSchedulerBackend (Logging.scala:logInfo(61)): SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+	2023-11-02 18:12:33,885 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:33,885 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-09ac0df963f8a58551f4f6f533e588994dc73fb1 created for executor 3
+	2023-11-02 18:12:33,886 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 4; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_4_a_spark-application-1698948752525
+	2023-11-02 18:12:34,067 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:34,067 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-a49de9abb307a1e95720c0fb8394c544fe2509cc created for executor 4
+	2023-11-02 18:12:34,068 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 5; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_5_a_spark-application-1698948752525
+	2023-11-02 18:12:34,242 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:34,242 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-95c01667e8abf991b4ae8854f7818d5b0c8b4736 created for executor 5
+	2023-11-02 18:12:34,243 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 6; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_6_a_spark-application-1698948752525
+	2023-11-02 18:12:34,298 INFO [Thread-9] glue.GlueContext (GlueContext.scala:<init>(126)): GlueMetrics configured and enabled
+	2023-11-02 18:12:34,305 INFO [Thread-9] lzo.GPLNativeCodeLoader (GPLNativeCodeLoader.java:<clinit>(34)): Loaded native gpl library
+	2023-11-02 18:12:34,317 INFO [Thread-9] lzo.LzoCodec (LzoCodec.java:<clinit>(76)): Successfully loaded & initialized native-lzo library [hadoop-lzo rev 049362b7cf53ff5f739d6b1532457f2c6cd495e8]
+	2023-11-02 18:12:34,360 INFO [Thread-9] util.FileListPersistence (FileListPersistence.scala:<init>(34)): create FileListPersistence with conf: fs.s3.serverSideEncryption.kms.keyId: None
+	2023-11-02 18:12:34,386 INFO [Thread-9] util.AvroReaderUtil$ (AvroReaderUtil.scala:getFieldParser(245)): Creating default Avro field parser for version 1.7.
+	2023-11-02 18:12:34,439 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:34,440 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-304de4d9e081596b022d2013a326baabec66941d created for executor 6
+	2023-11-02 18:12:34,440 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 7; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_7_a_spark-application-1698948752525
+	2023-11-02 18:12:34,543 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_0 stored as values in memory (estimated size 362.1 KiB, free 5.8 GiB)
+	2023-11-02 18:12:34,605 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_0_piece0 stored as bytes in memory (estimated size 33.8 KiB, free 5.8 GiB)
+	2023-11-02 18:12:34,607 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:34,608 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-bac2c68708b143b4021c19ba163fe78e98b754c3 created for executor 7
+	2023-11-02 18:12:34,608 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 8; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_8_a_spark-application-1698948752525
+	2023-11-02 18:12:34,609 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_0_piece0 in memory on 172.31.41.101:33315 (size: 33.8 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:34,615 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Created broadcast 0 from broadcast at DynamoConnection.scala:52
+	2023-11-02 18:12:34,626 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_1 stored as values in memory (estimated size 362.1 KiB, free 5.8 GiB)
+	2023-11-02 18:12:34,640 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_1_piece0 stored as bytes in memory (estimated size 33.8 KiB, free 5.8 GiB)
+	2023-11-02 18:12:34,641 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_1_piece0 in memory on 172.31.41.101:33315 (size: 33.8 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:34,642 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Created broadcast 1 from broadcast at DynamoConnection.scala:52
+	2023-11-02 18:12:34,645 INFO [Thread-9] util.JobBookmark$ (JobBookmarkUtils.scala:configure(66)): jobbookmark is not enabled, do not init AWSGlueJobBookMarkService
+	2023-11-02 18:12:34,673 INFO [Thread-9] util.AWSConnectionUtils$ (AWSConnectionUtils.scala:getGlueClient(62)): AWSConnectionUtils: use proxy in glue client configuration. Host: 169.254.76.0, Port: 8888
+	2023-11-02 18:12:34,810 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Removed broadcast_1_piece0 on 172.31.41.101:33315 in memory (size: 33.8 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:34,816 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Removed broadcast_0_piece0 on 172.31.41.101:33315 in memory (size: 33.8 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:34,850 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:34,852 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-1446fe0f8c05fea86a9dad5a78f86e8bb07bfcf4 created for executor 8
+	2023-11-02 18:12:34,854 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): creating executor task for executor 9; clientToken gr_b95dd24e-ebb0-420d-9059-7dde280075ac_e_9_a_spark-application-1698948752525
+	2023-11-02 18:12:34,920 INFO [Thread-9] http.AmazonHttpClient (ApacheHttpClientFactory.java:addProxyConfig(90)): Configuring Proxy. Proxy Host: 169.254.76.0 Proxy Port: 8888
+	2023-11-02 18:12:35,058 INFO [allocator] glue.TaskGroupInterface (Logging.scala:logInfo(61)): createChildTask API response code 200
+	2023-11-02 18:12:35,058 INFO [allocator] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): executor task g-d1808b016bb6f28037362c381119ac7c8bf56ad0 created for executor 9
+	2023-11-02 18:12:35,084 INFO [Thread-9] util.LakeformationRetryWrapper$ (DataCatalogWrapper.scala:executeWithRetry(1046)): Lakeformation: API call succeeded
+	ANTLR Tool version 4.5.1 used for code generation does not match the current runtime version 4.8ANTLR Runtime version 	4.7.2 used for parser compilation does not match the current runtime version 4.8	ANTLR Tool version 4.5.1 used for code generation does not match the current runtime version 4.8ANTLR Runtime version 4.7.2 used for parser compilation does not match the current runtime version 	4.8	2023-11-02 18:12:35,162 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getCatalogSource(288)): getCatalogSource: catalogId: null, nameSpace: customer-churn-s3-glue-database, tableName: customer_churn_bucket_gold, isRegisteredWithLF: false, isGoverned: false, isRowFilterEnabled: false, useAdvancedFiltering: false
+	2023-11-02 18:12:35,179 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getCatalogSource(303)): getCatalogSource: transactionId: <not-specified> asOfTime: <not-specified> catalogPartitionIndexPredicate: <not-specified> 
+	2023-11-02 18:12:35,180 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getCatalogSource(391)): classification csv
+	2023-11-02 18:12:35,528 INFO [Thread-9] glue.GlueContext (Logging.scala:logInfo(61)): No of partitions from catalog are 0.  consider catalogPartitionPredicate to reduce the number of partitions to scan through
+	2023-11-02 18:12:35,530 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getCatalogSource(479)): location s3://customer-churn-bucket-gold/
+	2023-11-02 18:12:35,537 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getSecretOptionsFromSecretManager(909)): Glue secret manager integration: secretId is not provided.
+	2023-11-02 18:12:36,036 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getSourceInternal(1043)): The DataSource in action : com.amazonaws.services.glue.HadoopDataSource
+	2023-11-02 18:12:36,161 INFO [Thread-9] hadoop.PartitionFilesListerUsingBookmark (FileSystemBookmark.scala:partitions(382)): IncompletePartitionFilter(partitionCreationEpoch=0, incompletePartition=)
+	2023-11-02 18:12:36,161 INFO [Thread-9] hadoop.PartitionFilesListerUsingBookmark (FileSystemBookmark.scala:partitions(383)): newPartitionFilter(partitionCreationEpoch=0, oldPartitions=Set())
+	2023-11-02 18:12:36,162 INFO [Thread-9] hadoop.PartitionFilesListerUsingBookmark (FileSystemBookmark.scala:partitions(384)): UnprocessedPartitionFilter(partitionCreationEpoch=0, oldPartitions=Set())
+	2023-11-02 18:12:36,163 INFO [Thread-9] hadoop.PartitionFilesListerUsingBookmark (FileSystemBookmark.scala:partitions(389)): last job run range: low inconsistency range begin: 1970-01-01T00:00:00Z, 
+ job run range begin: 1970-01-01T00:00:00Z, 
+ high inconsistency range begin: 2023-11-02T17:57:36.149Z, 
+ job run range end: 2023-11-02T18:12:36.149Z
+	2023-11-02 18:12:37,131 INFO [ForkJoinPool-2-worker-25] hadoop.PartitionFilesListerUsingBookmark (FileSystemBookmark.scala:$anonfun$partitions$3(412)): After initial job bookmarks filter, processing 100.00% of 1 files in partition DynamicFramePartition(com.amazonaws.services.glue.DynamicRecord@a0139eb8,s3://customer-churn-bucket-gold/,0).
+	2023-11-02 18:12:37,135 INFO [Thread-9] glue.HadoopDataSource (DataSource.scala:$anonfun$getDynamicFrame$12(577)): nonSplittable: false, disableSplitting: false, catalogCompressionNotSplittable: false, groupFilesTapeOption: none, format: csv, isColumnar: false
+	2023-11-02 18:12:37,249 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_2 stored as values in memory (estimated size 374.7 KiB, free 5.8 GiB)
+	2023-11-02 18:12:37,265 INFO [Thread-9] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_2_piece0 stored as bytes in memory (estimated size 35.3 KiB, free 5.8 GiB)
+	2023-11-02 18:12:37,266 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_2_piece0 in memory on 172.31.41.101:33315 (size: 35.3 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:37,268 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Created broadcast 2 from newAPIHadoopRDD at DataSource.scala:446
+	2023-11-02 18:12:37,521 INFO [Thread-9] util.LakeformationRetryWrapper$ (DataCatalogWrapper.scala:executeWithRetry(1046)): Lakeformation: API call succeeded
+	2023-11-02 18:12:38,067 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getSecretOptionsFromSecretManager(909)): Glue secret manager integration: secretId is not provided.
+	2023-11-02 18:12:38,209 INFO [Thread-9] util.DataCatalogWrapper (DataCatalogWrapper.scala:getPassword$1(241)): Encrypted Catalog password is empty, using value of unencrypted Catalog password
+	2023-11-02 18:12:38,272 INFO [Thread-9] util.RedshiftUtils$ (Logging.scala:logInfo(24)): Setting Redshift JDBC driver classpath...
+	2023-11-02 18:12:38,272 INFO [Thread-9] util.RedshiftUtils$ (Logging.scala:logInfo(24)): Redshift JDBC driver classpath is empty, initializing..
+	2023-11-02 18:12:38,273 INFO [Thread-9] util.RedshiftUtils$ (Logging.scala:logInfo(24)): Redshift JDBC driver classpath is set: com.amazon.redshift.jdbc42.Driver
+	2023-11-02 18:12:38,977 INFO [Thread-9] util.JDBCWrapper$ (Logging.scala:logInfo(24)): INFO: using ssl properties: Map(sslrootcert -> /opt/amazon/certs/redshift-ssl-ca-cert.pem, ssl -> true, sslmode -> verify-full)
+	2023-11-02 18:12:39,030 INFO [Thread-9] glue.RedshiftDataSink (RedshiftDataSink.scala:<init>(42)): glue.etl.telemetry.runtimeImproveFeature.baikal.datasink, jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+	2023-11-02 18:12:39,030 INFO [Thread-9] glue.GlueContext (GlueContext.scala:getSink(1151)): The DataSink in action for the given format/connectionType (redshift) is com.amazonaws.services.glue.RedshiftDataSink
+	2023-11-02 18:12:39,197 INFO [Thread-9] internal.SharedState (Logging.scala:logInfo(61)): Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+	2023-11-02 18:12:39,200 INFO [Thread-9] internal.SharedState (Logging.scala:logInfo(61)): Warehouse path is 'file:/tmp/spark-warehouse'.
+	2023-11-02 18:12:42,117 INFO [Thread-9] util.RedshiftWrapper (Logging.scala:logInfo(24)): Redshift connector classpath: io.github.spark_redshift_community.spark.redshift
+	2023-11-02 18:12:42,274 INFO [Thread-9] redshift.DefaultSource (DefaultSource.scala:enablePushdownSession(131)): Enable auto pushdown.
+	2023-11-02 18:12:42,375 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:resolveTable(196)): Getting schema from Redshift for table: "public"."customer_churn"
+	2023-11-02 18:12:42,377 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 1
+	2023-11-02 18:12:42,404 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 1
+	2023-11-02 18:12:42,531 INFO [Thread-9] util.RedshiftWrapper (Logging.scala:logInfo(24)): Redshift connector classpath: io.github.spark_redshift_community.spark.redshift
+	2023-11-02 18:12:42,581 WARN [Thread-9] util.package (Logging.scala:logWarning(73)): Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+	2023-11-02 18:12:43,115 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,166 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,403 WARN [Thread-9] redshift.Utils$ (Utils.scala:checkThatBucketHasObjectLifecycleConfiguration(181)): The S3 bucket aws-glue-assets-596056226988-eu-west-2 does not have an object lifecycle configuration to ensure cleanup of temporary files. Consider configuring `tempdir` to point to a bucket with an object lifecycle policy that automatically deletes files after an expiration period. For more information, see https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+	2023-11-02 18:12:43,404 INFO [Thread-9] redshift.Utils$ (Utils.scala:collectMetrics(326)): name: spark-redshift, version: 6.0.0-spark_3.3, scalaVersion: 2.12.15, sbtVersion: 0.13.18
+	2023-11-02 18:12:43,477 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,478 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,484 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,874 INFO [Thread-9] codegen.CodeGenerator (Logging.scala:logInfo(61)): Code generated in 243.972467 ms
+	2023-11-02 18:12:43,977 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,978 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:43,981 INFO [Thread-9] pushdown.RedshiftStrategy (Logging.scala:logInfo(61)): Using lazy mode for redshift query push down
+	2023-11-02 18:12:44,142 INFO [Thread-9] output.FileSystemOptimizedOutputCommitterFactory (FileSystemOptimizedOutputCommitterFactory.java:createOutputCommitter(53)): EMR Optimized Committer: DISABLED
+	2023-11-02 18:12:44,144 INFO [Thread-9] output.FileOutputCommitter (FileOutputCommitter.java:<init>(153)): File Output Committer Algorithm version is 2
+	2023-11-02 18:12:44,144 INFO [Thread-9] output.FileOutputCommitter (FileOutputCommitter.java:<init>(158)): FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+	2023-11-02 18:12:44,145 INFO [Thread-9] output.DirectFileOutputCommitter (DirectFileOutputCommitter.java:isDirectWrite(156)): Direct Write: ENABLED
+	2023-11-02 18:12:44,145 INFO [Thread-9] datasources.SQLConfCommitterProvider (Logging.scala:logInfo(61)): Using output committer class org.apache.hadoop.mapreduce.lib.output.DirectFileOutputCommitter
+	2023-11-02 18:12:44,146 INFO [Thread-9] output.DirectFileOutputCommitter (DirectFileOutputCommitter.java:setupJob(52)): Nothing to setup since the outputs are written directly.
+	2023-11-02 18:12:44,225 INFO [Thread-9] spark.SparkContext (Logging.scala:logInfo(61)): Starting job: save at RedshiftWriter.scala:370
+	2023-11-02 18:12:44,244 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Got job 0 (save at RedshiftWriter.scala:370) with 1 output partitions
+	2023-11-02 18:12:44,245 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Final stage: ResultStage 0 (save at RedshiftWriter.scala:370)
+	2023-11-02 18:12:44,245 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Parents of final stage: List()
+	2023-11-02 18:12:44,247 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Missing parents: List()
+	2023-11-02 18:12:44,255 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Submitting ResultStage 0 (MapPartitionsRDD[19] at save at RedshiftWriter.scala:370), which has no missing parents
+	2023-11-02 18:12:44,418 INFO [dag-scheduler-event-loop] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_3 stored as values in memory (estimated size 317.3 KiB, free 5.8 GiB)
+	2023-11-02 18:12:44,425 INFO [dag-scheduler-event-loop] memory.MemoryStore (Logging.scala:logInfo(61)): Block broadcast_3_piece0 stored as bytes in memory (estimated size 107.9 KiB, free 5.8 GiB)
+	2023-11-02 18:12:44,426 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_3_piece0 in memory on 172.31.41.101:33315 (size: 107.9 KiB, free: 5.8 GiB)
+	2023-11-02 18:12:44,427 INFO [dag-scheduler-event-loop] spark.SparkContext (Logging.scala:logInfo(61)): Created broadcast 3 from broadcast at DAGScheduler.scala:1570
+	2023-11-02 18:12:44,444 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[19] at save at RedshiftWriter.scala:370) (first 15 tasks are for partitions Vector(0))
+	2023-11-02 18:12:44,446 INFO [dag-scheduler-event-loop] scheduler.TaskSchedulerImpl (Logging.scala:logInfo(61)): Adding task set 0.0 with 1 tasks resource profile 0
+	2023-11-02 18:12:59,476 WARN [task-starvation-timer] scheduler.TaskSchedulerImpl (Logging.scala:logWarning(73)): Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+	2023-11-02 18:13:00,512 INFO [pool-5-thread-1] glue.LogPusher (Logging.scala:logInfo(61)): uploading /tmp/spark-event-logs/ to s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/
+	2023-11-02 18:13:00,614 INFO [pool-5-thread-1] s3n.MultipartUploadOutputStream (MultipartUploadOutputStream.java:close(421)): close closed:false s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/spark-application-1698948752525.inprogress
+
+[2023-11-02T18:14:02.259+0000] {glue.py:71} INFO - Poking for job run status :for Glue Job s3_upload_redshift_gluejob and ID jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745
+[2023-11-02T18:14:02.395+0000] {glue.py:76} INFO - Exiting Job jr_bd8a006b7ec0f4fe990e9f2b9d19a8c98e8daa8e30b3db9c9aeb382ad78e2745 Run State: SUCCEEDED
+[2023-11-02T18:14:02.546+0000] {glue.py:247} WARNING - No new Glue driver logs so far.
+If this persists, check the CloudWatch dashboard at: https://eu-west-2.console.aws.amazon.com/cloudwatch/home
+[2023-11-02T18:14:02.546+0000] {glue.py:260} INFO - No new log from the Glue Job in /aws-glue/jobs/output
+[2023-11-02T18:14:02.717+0000] {glue.py:258} INFO - Glue Job Run /aws-glue/jobs/error Logs:
+	2023-11-02 18:13:06,265 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.32.217:57082) with ID 3,  ResourceProfileId 0
+	2023-11-02 18:13:06,358 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 3 @ 1698948786357
+	2023-11-02 18:13:06,358 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 3
+	2023-11-02 18:13:06,359 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.43.72:50254) with ID 8,  ResourceProfileId 0
+	2023-11-02 18:13:06,360 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 8 @ 1698948786360
+	2023-11-02 18:13:06,361 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 8
+	2023-11-02 18:13:06,465 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.43.72:42665 with 5.8 GiB RAM, BlockManagerId(8, 172.31.43.72, 42665, None)
+	2023-11-02 18:13:06,467 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.32.217:37243 with 5.8 GiB RAM, BlockManagerId(3, 172.31.32.217, 37243, None)
+	2023-11-02 18:13:06,542 INFO [dispatcher-CoarseGrainedScheduler] scheduler.TaskSetManager (Logging.scala:logInfo(61)): Starting task 0.0 in stage 0.0 (TID 0) (172.31.32.217, executor 3, partition 0, ANY, 4684 bytes) taskResourceAssignments Map()
+	2023-11-02 18:13:06,565 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.33.167:51734) with ID 1,  ResourceProfileId 0
+	2023-11-02 18:13:06,566 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 1 @ 1698948786566
+	2023-11-02 18:13:06,567 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 1
+	2023-11-02 18:13:06,569 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.40.172:56854) with ID 2,  ResourceProfileId 0
+	2023-11-02 18:13:06,570 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 2 @ 1698948786569
+	2023-11-02 18:13:06,571 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 2
+	2023-11-02 18:13:06,675 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.40.172:37717 with 5.8 GiB RAM, BlockManagerId(2, 172.31.40.172, 37717, None)
+	2023-11-02 18:13:06,689 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.33.167:44555 with 5.8 GiB RAM, BlockManagerId(1, 172.31.33.167, 44555, None)
+	2023-11-02 18:13:06,962 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_3_piece0 in memory on 172.31.32.217:37243 (size: 107.9 KiB, free: 5.8 GiB)
+	2023-11-02 18:13:07,852 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.44.2:47426) with ID 9,  ResourceProfileId 0
+	2023-11-02 18:13:07,853 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 9 @ 1698948787852
+	2023-11-02 18:13:07,853 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 9
+	2023-11-02 18:13:07,967 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.44.2:37755 with 5.8 GiB RAM, BlockManagerId(9, 172.31.44.2, 37755, None)
+	2023-11-02 18:13:08,225 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.33.19:57694) with ID 5,  ResourceProfileId 0
+	2023-11-02 18:13:08,226 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 5 @ 1698948788226
+2023-11-02 18:13:08,226 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 5
+	2023-11-02 18:13:08,326 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.33.19:42413 with 5.8 GiB RAM, BlockManagerId(5, 172.31.33.19, 42413, None)
+	2023-11-02 18:13:08,537 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerInfo (Logging.scala:logInfo(61)): Added broadcast_2_piece0 in memory on 172.31.32.217:37243 (size: 35.3 KiB, free: 5.8 GiB)
+	2023-11-02 18:13:08,927 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.41.25:52000) with ID 7,  ResourceProfileId 0
+	2023-11-02 18:13:08,928 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 7 @ 1698948788928
+	2023-11-02 18:13:08,928 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 7
+	2023-11-02 18:13:09,036 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.41.25:35139 with 5.8 GiB RAM, BlockManagerId(7, 172.31.41.25, 35139, None)
+	2023-11-02 18:13:09,786 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.33.9:36574) with ID 6,  ResourceProfileId 0
+	2023-11-02 18:13:09,786 INFO [spark-listener-group-shared] scheduler.ExecutorEventListener (Logging.scala:logInfo(61)): Got executor added event for 6 @ 1698948789786
+2023-11-02 18:13:09,787 INFO [spark-listener-group-shared] glue.ExecutorTaskManagement (Logging.scala:logInfo(61)): connected executor 6
+	2023-11-02 18:13:09,901 INFO [dispatcher-BlockManagerMaster] storage.BlockManagerMasterEndpoint (Logging.scala:logInfo(61)): Registering block manager 172.31.33.9:40911 with 5.8 GiB RAM, BlockManagerId(6, 172.31.33.9, 40911, None)
+	2023-11-02 18:13:12,376 INFO [task-result-getter-0] scheduler.TaskSetManager (Logging.scala:logInfo(61)): Finished task 0.0 in stage 0.0 (TID 0) in 5857 ms on 172.31.32.217 (executor 3) (1/1)
+	2023-11-02 18:13:12,552 INFO [task-result-getter-0] scheduler.TaskSchedulerImpl (Logging.scala:logInfo(61)): Removed TaskSet 0.0, whose tasks have all completed, from pool 
+	2023-11-02 18:13:12,561 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): ResultStage 0 (save at RedshiftWriter.scala:370) finished in 28.281 s
+	2023-11-02 18:13:12,573 INFO [dag-scheduler-event-loop] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+	2023-11-02 18:13:12,575 INFO [dag-scheduler-event-loop] scheduler.TaskSchedulerImpl (Logging.scala:logInfo(61)): Killing all running tasks in stage 0: Stage finished
+	2023-11-02 18:13:12,579 INFO [Thread-9] scheduler.DAGScheduler (Logging.scala:logInfo(61)): Job 0 finished: save at RedshiftWriter.scala:370, took 28.353492 s
+	2023-11-02 18:13:12,583 INFO [Thread-9] datasources.FileFormatWriter (Logging.scala:logInfo(61)): Start to commit write Job d4ed72e6-32e3-447c-a793-ae1149d75aa2.
+	2023-11-02 18:13:12,584 INFO [Thread-9] output.DirectFileOutputCommitter (DirectFileOutputCommitter.java:cleanupJob(66)): Nothing to clean up since no temporary files were written.
+	2023-11-02 18:13:12,749 INFO [Thread-9] datasources.FileFormatWriter (Logging.scala:logInfo(61)): Write Job d4ed72e6-32e3-447c-a793-ae1149d75aa2 committed. Elapsed time: 164 ms.
+	2023-11-02 18:13:12,754 INFO [Thread-9] datasources.FileFormatWriter (Logging.scala:logInfo(61)): Finished processing stats for write job d4ed72e6-32e3-447c-a793-ae1149d75aa2.
+	2023-11-02 18:13:12,809 INFO [Thread-9] s3n.MultipartUploadOutputStream (MultipartUploadOutputStream.java:close(421)): close closed:false s3://aws-glue-assets-596056226988-eu-west-2/temporary/2fab63d7-ab6d-4ce6-b28c-10eb2bc0f141/manifest.json
+	2023-11-02 18:13:12,897 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 2
+	2023-11-02 18:13:12,901 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 2
+	2023-11-02 18:13:12,902 INFO [Thread-9] redshift.RedshiftWriter (RedshiftWriter.scala:$anonfun$saveToRedshift$3(505)): Loading new Redshift data to: "public"."customer_churn"
+2023-11-02 18:13:12,904 INFO [Thread-9] redshift.RedshiftWriter (RedshiftWriter.scala:doRedshiftLoad(149)): Creating table within Redshift: "public"."customer_churn"
+	2023-11-02 18:13:12,905 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 3
+	2023-11-02 18:13:12,914 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 3
+	2023-11-02 18:13:12,919 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 4
+	2023-11-02 18:13:12,922 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 4
+	2023-11-02 18:13:12,922 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 5
+	2023-11-02 18:13:13,350 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 5
+	2023-11-02 18:13:13,353 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(146)): Begin JDBC call 6
+	2023-11-02 18:13:13,752 INFO [Thread-9] redshift.DefaultJDBCWrapper$ (RedshiftJDBCWrapper.scala:executeInterruptibly(170)): End JDBC call 6
+	2023-11-02 18:13:14,244 INFO [main] glue.ProcessLauncher (Logging.scala:logInfo(61)): postprocessing
+	2023-11-02 18:13:14,246 INFO [main] glue.LogPusher (Logging.scala:logInfo(61)): stopping
+	Continuous Logging: Shutting down cloudwatch appender.
+	Continuous Logging: Shutting down cloudwatch appender.
+	2023-11-02 18:13:14,249 INFO [shutdown-hook-0] spark.SparkContext (Logging.scala:logInfo(61)): Invoking stop() from shutdown hook
+	2023-11-02 18:13:14,276 INFO [shutdown-hook-0] scheduler.JESSchedulerBackend (Logging.scala:logInfo(61)): Shutting down all executors
+	2023-11-02 18:13:14,277 INFO [dispatcher-CoarseGrainedScheduler] scheduler.JESSchedulerBackend$JESAsSchedulerBackendEndpoint (Logging.scala:logInfo(61)): Asking each executor to shut down
+	2023-11-02 18:13:14,294 INFO [dispatcher-event-loop-1] spark.MapOutputTrackerMasterEndpoint (Logging.scala:logInfo(61)): MapOutputTrackerMasterEndpoint stopped!
+	2023-11-02 18:13:14,339 INFO [shutdown-hook-0] memory.MemoryStore (Logging.scala:logInfo(61)): MemoryStore cleared
+	2023-11-02 18:13:14,340 INFO [shutdown-hook-0] storage.BlockManager (Logging.scala:logInfo(61)): BlockManager stopped
+	2023-11-02 18:13:14,344 INFO [shutdown-hook-0] storage.BlockManagerMaster (Logging.scala:logInfo(61)): BlockManagerMaster stopped
+	2023-11-02 18:13:14,471 INFO [dispatcher-event-loop-1] scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint (Logging.scala:logInfo(61)): OutputCommitCoordinator stopped!
+	2023-11-02 18:13:14,482 INFO [shutdown-hook-0] spark.SparkContext (Logging.scala:logInfo(61)): Successfully stopped SparkContext
+	2023-11-02 18:13:14,482 INFO [shutdown-hook-0] glue.LogPusher (Logging.scala:logInfo(61)): uploading /tmp/spark-event-logs/ to s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/
+	2023-11-02 18:13:14,528 INFO [shutdown-hook-0] s3n.MultipartUploadOutputStream (MultipartUploadOutputStream.java:close(421)): close closed:false s3://aws-glue-assets-596056226988-eu-west-2/sparkHistoryLogs/spark-application-1698948752525
+	2023-11-02 18:13:14,582 INFO [shutdown-hook-0] util.ShutdownHookManager (Logging.scala:logInfo(61)): Shutdown hook called
+	2023-11-02 18:13:14,583 INFO [shutdown-hook-0] util.ShutdownHookManager (Logging.scala:logInfo(61)): Deleting directory /tmp/spark-f7255279-3d17-4d20-af6f-964ee7a58fa9/pyspark-54351f69-b44d-4c1a-aec0-b044c6dd9bed
+	2023-11-02 18:13:14,587 INFO [shutdown-hook-0] util.ShutdownHookManager (Logging.scala:logInfo(61)): Deleting directory /tmp/spark-f7255279-3d17-4d20-af6f-964ee7a58fa9
+
+[2023-11-02T18:14:02.718+0000] {base.py:287} INFO - Success criteria met. Exiting.
+[2023-11-02T18:14:02.725+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=tsk_is_glue_job_finish_running, execution_date=20231102T181146, start_date=20231102T181200, end_date=20231102T181402
+[2023-11-02T18:14:02.780+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-11-02T18:14:02.789+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

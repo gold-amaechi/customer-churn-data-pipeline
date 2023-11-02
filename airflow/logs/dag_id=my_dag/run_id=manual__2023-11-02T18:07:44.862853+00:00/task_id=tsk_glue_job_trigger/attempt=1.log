@@ -1,0 +1,15 @@
+[2023-11-02T18:07:46.868+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.tsk_glue_job_trigger manual__2023-11-02T18:07:44.862853+00:00 [queued]>
+[2023-11-02T18:07:46.874+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.tsk_glue_job_trigger manual__2023-11-02T18:07:44.862853+00:00 [queued]>
+[2023-11-02T18:07:46.874+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 3
+[2023-11-02T18:07:46.943+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): tsk_glue_job_trigger> on 2023-11-02 18:07:44.862853+00:00
+[2023-11-02T18:07:46.945+0000] {standard_task_runner.py:57} INFO - Started process 2138 to run task
+[2023-11-02T18:07:46.948+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'my_dag', 'tsk_glue_job_trigger', 'manual__2023-11-02T18:07:44.862853+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/customer_churn.py', '--cfg-path', '/tmp/tmpxiixwaqx']
+[2023-11-02T18:07:46.949+0000] {standard_task_runner.py:85} INFO - Job 32: Subtask tsk_glue_job_trigger
+[2023-11-02T18:07:46.985+0000] {task_command.py:416} INFO - Running <TaskInstance: my_dag.tsk_glue_job_trigger manual__2023-11-02T18:07:44.862853+00:00 [running]> on host ip-172-31-12-44.eu-west-2.compute.internal
+[2023-11-02T18:07:47.040+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='myemail@domain.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='tsk_glue_job_trigger' AIRFLOW_CTX_EXECUTION_DATE='2023-11-02T18:07:44.862853+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-02T18:07:44.862853+00:00'
+[2023-11-02T18:07:47.045+0000] {base.py:73} INFO - Using connection ID 'aws_s3_conn' for task execution.
+[2023-11-02T18:07:47.046+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='aws_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-11-02T18:07:47.324+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-11-02T18:07:47.329+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=tsk_glue_job_trigger, execution_date=20231102T180744, start_date=20231102T180746, end_date=20231102T180747
+[2023-11-02T18:07:47.361+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-11-02T18:07:47.381+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,9 @@
+2023-11-02 21:00:20.514 [info] Experiment 'pythonPromptNewFormatterExt' is active
+2023-11-02 21:00:20.514 [info] Experiment 'pythonPromptNewToolsExt' is active
+2023-11-02 21:00:20.514 [info] Experiment 'pythonREPLSmartSendcf' is active
+2023-11-02 21:00:20.514 [info] Experiment 'pythonTestAdapter' is active
+2023-11-02 21:00:20.894 [info] Default formatter is set to null for workspace /home/ubuntu
+2023-11-02 21:00:21.515 [info] Test server listening.
+2023-11-02 21:00:21.516 [info] Python interpreter path: ./customer_churn/bin/python
+2023-11-02 21:00:24.057 [info] Starting Pylance language server.
+2023-11-02 22:22:53.094 [info] Send text to terminal: source /home/ubuntu/customer_churn/bin/activate
