@@ -19,7 +19,7 @@ To use this data pipeline, follow these steps:
 
 1. Clone this repository to your local environment.
    
-2. Obtain the telco customer churn dataset from kaggle, save as CSV file instead of xlsx (this makes life easier when creating your S3 data source).
+2. Obtain the telco customer churn dataset from kaggle, save as csv file instead of xlsx (this makes life easier when creating your S3 data source).
 
 3. Create an AWS account.
 
@@ -40,13 +40,13 @@ To use this data pipeline, follow these steps:
 
 7. Login with your airflow user name and password.
 
-8. Remotely SSH (connect) VS Code to AWS.
+8. Remotely SSH (connect) Visual Studio Code to AWS.
 
 9. Create your S3 bucket, make sure it has a globally unique name and has the same region as your EC2 instance.
 
-10. Upload your csv file to the S3 bucket
+10. Upload your csv file to the S3 bucket.
 
-11. Create glue crawler for the S3 bucket, this will crawl the dataset abd infer schema (it will get headers, etc.)
+11. Create a glue crawler for the S3 bucket, this will crawl the dataset and infer schema (it will get headers, etc.).
 
 12. Ceate a database to temporarily store data from the S3 bucket, the glue crawler will create a table.
 
@@ -54,11 +54,11 @@ To use this data pipeline, follow these steps:
 
 14. Create a glue job to bind the two crawlers together.
 
-15. The customer_churn.py file defines the data pipeline tasks we mentioned earlier. Customize the Glue job name and any other parameters to match your specific use case.
+15. The customer_churn.py file defines the data pipeline tasks we mentioned earlier. Customise the Glue job name and any other parameters to match your specific use case.
 
 16. Refresh your airflow U.I. to see the DAGs created.
 
-17. Create a connection between Airflow and AWS services, this can be done in the admin section, click connection.
+17. Create a connection between Airflow and AWS services, this can be done by navigating to the admin section in your Airflow U.I. and clicking connection.
 
 18. You should now be able to trigger and monitor the execution of your data pipeline from the Airflow U.I.
 
