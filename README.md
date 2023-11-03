@@ -62,6 +62,11 @@ To use this data pipeline, follow these steps:
 
 18. You should now be able to trigger and monitor the execution of your data pipeline from the Airflow U.I.
 
+## Power BI
+
+This is a useful way to illustarte insights you have gained from your data.
+Install and open Power BI for desktop, click on 'Get Data' and search for 'Amazon Redshift', you will need to copy the endpoint url from your Redshift and paste to PowerBI, then input the Redshift username and password that we made note of earlier. Then click connect, you can now transform and load your data. Have fun designing graphs and KPIs to answer your specific questions.
+
 Feel free to contact me if you have any questions or need assistance with this data pipeline.
 
 Happy data processing!
