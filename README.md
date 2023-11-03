@@ -26,15 +26,15 @@ To use this data pipeline, follow these steps:
 4. Launch an EC2 instance, use Ubuntu, you'll need a t2 medium instance type because Airflow might freeze and act up with a samller size (but you will have to pay for this), and create a key pair, allow HTTP & SSH traffic.
 
 5. EC2 connect to open your terminal, then install dependencies:
-      sudo apt update : To update
-      sudo apt install python3-pip : To install pip
-      sudo apt install python3.10-venv : To instal virtual environment
-      python3 -m venv 'insert_your_virtual_environment_name_here'_venv : To create your virtual environment
-      source customer_churn_youtube_venv/bin/activate : To activate your virtual environment
-      sudo pip install apache-airflow : To install Airflow
-      pip install apache-airflow-providers-amazon : You need this provider because you will be interacting with AWS services
-      First, pip install --upgrade awscli, then aws configure : You will need AWS access key, secret access key and to know your region
-      airflow standalone : To activate Airflow, make note of your user name and password
+      - sudo apt update : To update
+      - sudo apt install python3-pip : To install pip
+      - sudo apt install python3.10-venv : To instal virtual environment
+      - python3 -m venv 'insert_your_virtual_environment_name_here'_venv : To create your virtual environment
+      - source customer_churn_youtube_venv/bin/activate : To activate your virtual environment
+      - sudo pip install apache-airflow : To install Airflow
+      - pip install apache-airflow-providers-amazon : You need this provider because you will be interacting with AWS services
+      - First, pip install --upgrade awscli, then aws configure : You will need AWS access key, secret access key and to know your region
+      - airflow standalone : To activate Airflow, make note of your user name and password
 
 6. Copy Public IPV4 from your EC2 instance, edit inbound rules to give permission to port 8080. Paste the IPV4 in a new tab, add :8080 to the end, you can now access the airflow U.I.
 
